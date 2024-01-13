@@ -9,13 +9,13 @@ const feedStyles = StyleSheet.create({
     resizeMode: 'cover',
   },
   text: {
-    margin: 20,
     color: 'black',
     fontSize: 20,
     textAlign: 'center',
   },
   title: {
     marginTop: 100,
+    marginBottom: 50,
     color: 'black',
     fontSize: 30,
     fontWeight: 'bold',

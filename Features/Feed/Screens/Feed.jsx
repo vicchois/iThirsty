@@ -3,41 +3,53 @@
 
 import React, { useState } from 'react';
 import {
-  Button, Text, View, StyleSheet,
+  Button, Text, View,
 } from 'react-native';
+import { Picker } from '@react-native-picker/picker';
 import PropTypes from 'prop-types';
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  image: {
-    flex: 1,
-    resizeMode: 'cover',
-  },
-  text: {
-    margin: 20,
-    color: 'black',
-    fontSize: 20,
-    textAlign: 'center',
-  },
-  title: {
-    marginTop: 100,
-    color: 'black',
-    fontSize: 30,
-    fontWeight: 'bold',
-    textAlign: 'center',
-  },
-});
+import styles from '../FeedStyles';
 
 export default function Feed({ navigation }) {
+  const [selectedPlant, setSelectedPlant] = useState();
+
   const navigateToLanding = () => {
     navigation.navigate('Landing');
   };
 
+  const PLANT_INFO = [
+    {
+      id: 1,
+      name: 'House Plant',
+      min: 20,
+      max: 50,
+    },
+    {
+      id: 2,
+      name: 'Bamboo',
+      min: 30,
+      max: 50,
+    },
+    {
+      id: 3,
+      name: 'Succulent',
+      min: 10,
+      max: 20,
+    },
+  ];
+
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Plant 1</Text>
+      <Text style={styles.title}>iThirsty</Text>
+      <Text style={styles.text}>Select Plant:</Text>
+      <Picker
+        selectedValue={selectedPlant}
+        onValueChange={(itemValue, itemIndex) => setSelectedPlant(itemValue)}
+      >
+        <Picker.Item label="House Plant" value="1" />
+        <Picker.Item label="Bamboo" value="2" />
+        <Picker.Item label="Succulent" value="3" />
+      </Picker>
+
       <Text style={styles.text}>Moisture</Text>
       <Text style={styles.text}>Helpful Information</Text>
 

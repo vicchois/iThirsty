@@ -14,7 +14,6 @@ export default function Landing({ navigation }) {
   const navigateToAbout = () => {
     navigation.navigate('About');
   };
-
   return (
     <View style={styles.container}>
       <ImageBackground source={image} style={styles.image}>
