@@ -7,10 +7,10 @@ const landingStyles = StyleSheet.create({
   image: {
     flex: 1,
     resizeMode: 'cover',
-    height: 1000,
+    height: 900,
   },
   text: {
-    margin: 20,
+    marginTop: 20,
     color: 'black',
     fontSize: 20,
     textAlign: 'center',

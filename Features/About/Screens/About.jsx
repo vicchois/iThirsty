@@ -1,8 +1,7 @@
 import React from 'react';
 import {
-  Button, Text, ScrollView,
+  Text, ScrollView,
 } from 'react-native';
-import PropTypes from 'prop-types';
 import Person from '../Components/Person';
 import styles from '../AboutStyles';
 
@@ -39,19 +38,10 @@ const OUR_TEAM = [
   },
 ];
 
-export default function About({ navigation }) {
-  const navigateToLanding = () => {
-    navigation.navigate('Landing');
-  };
-
+export default function About() {
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <Text style={styles.title}>About iThirsty</Text>
-      <Button
-        style={styles.button}
-        title="Home"
-        onPress={navigateToLanding}
-      />
       {
         OUR_TEAM.map((person) => (
           <Person key={person.id} name={person.name} body={person.body} picture={person.picture} />
@@ -60,9 +50,3 @@ export default function About({ navigation }) {
     </ScrollView>
   );
 }
-
-About.propTypes = {
-  navigation: PropTypes.shape({
-    navigate: PropTypes.func,
-  }).isRequired,
-};

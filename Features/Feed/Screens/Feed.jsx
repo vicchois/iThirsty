@@ -3,19 +3,13 @@
 
 import React, { useState } from 'react';
 import {
-  Button, Text, View, ImageBackground,
+  Text, View, ImageBackground,
 } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
-import PropTypes from 'prop-types';
 import styles from '../FeedStyles';
 
-export default function Feed({ navigation }) {
+export default function Feed() {
   const [selectedPlant, setSelectedPlant] = useState();
-
-  const navigateToLanding = () => {
-    navigation.navigate('Landing');
-  };
-
   const PLANT_INFO = [
     {
       id: 2,
@@ -48,11 +42,6 @@ export default function Feed({ navigation }) {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>iThirsty</Text>
-      <Button
-        style={{ marginBottom: 20 }}
-        title="Home"
-        onPress={navigateToLanding}
-      />
       <Text style={styles.subtitle}>Select Plant:</Text>
       <Picker
         selectedValue={selectedPlant ? selectedPlant.id.toString() : null}
@@ -72,9 +61,3 @@ export default function Feed({ navigation }) {
     </View>
   );
 }
-
-Feed.propTypes = {
-  navigation: PropTypes.shape({
-    navigate: PropTypes.func,
-  }).isRequired,
-};

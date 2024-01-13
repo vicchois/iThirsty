@@ -20,6 +20,7 @@ const feedStyles = StyleSheet.create({
   },
   title: {
     marginTop: 100,
+    marginBottom: 25,
     color: 'black',
     fontSize: 30,
     fontWeight: 'bold',
