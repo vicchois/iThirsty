@@ -17,7 +17,6 @@ export default function Landing() {
         <LottieView
           style={styles.animation}
           source={require('../../../assets/plant.json')}
-          autoPlay
           loop
         />
       </View>

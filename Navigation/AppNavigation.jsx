@@ -3,7 +3,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
 import Landing from '../Features/Landing/Screens/Landing';
-import Feed from '../Features/Feed/Screens/Feed';
+import Plants from '../Features/Plants/Screens/Plants';
+import Explore from '../Features/Explore/Screens/Explore';
 import About from '../Features/About/Screens/About';
 
 const Tab = createBottomTabNavigator();
@@ -22,9 +23,17 @@ export default function AppNavigation() {
         />
         <Tab.Screen
           name="Plants"
-          component={Feed}
+          component={Plants}
           options={{
             tabBarIcon: ({ color, size }) => <Ionicons name="leaf-outline" color={color} size={size} />,
+            headerShown: false,
+          }}
+        />
+        <Tab.Screen
+          name="Explore"
+          component={Explore}
+          options={{
+            tabBarIcon: ({ color, size }) => <Ionicons name="search-outline" color={color} size={size} />,
             headerShown: false,
           }}
         />
