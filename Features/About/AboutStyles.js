@@ -1,22 +1,33 @@
 import { StyleSheet } from 'react-native';
 
 const aboutStyles = StyleSheet.create({
-  container: {
+  bioContainer: {
+    flexDirection: 'row',
     alignItems: 'center',
+    padding: 10,
+    margin: 10,
+    borderRadius: 20,
   },
   picture: {
     width: 100,
     height: 100,
     borderRadius: 50,
     alignItems: 'center',
-    margin: 20,
+    marginLeft: 20,
+    marginRight: 20,
+    marginTop: 20,
   },
-  person: {
+  bio: {
+    flex: 1,
+    display: 'flex',
+    marginTop: 20,
+  },
+  name: {
     color: 'black',
     fontSize: 20,
     textAlign: 'center',
   },
-  bio: {
+  body: {
     fontSize: 20,
     textAlign: 'center',
     marginBottom: 20,

@@ -11,7 +11,7 @@ const feedStyles = StyleSheet.create({
     height: 400,
     width: 400,
     alignItems: 'center',
-    margin: 10,
+    padding: 100,
   },
   text: {
     color: 'black',
@@ -20,7 +20,6 @@ const feedStyles = StyleSheet.create({
   },
   title: {
     marginTop: 100,
-    marginBottom: 25,
     color: 'black',
     fontSize: 30,
     fontWeight: 'bold',

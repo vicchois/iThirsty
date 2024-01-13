@@ -1,14 +1,16 @@
-import { Text, Image } from 'react-native';
+import { Text, Image, View } from 'react-native';
 import PropTypes from 'prop-types';
 import styles from '../AboutStyles';
 
 export default function Person({ name, body, picture }) {
   return (
-    <>
+    <View style={styles.bioContainer}>
       <Image source={picture} style={styles.picture} />
-      <Text style={styles.person}>{name}</Text>
-      <Text style={styles.bio}>{body}</Text>
-    </>
+      <View style={styles.bio}>
+        <Text style={styles.name}>{name}</Text>
+        <Text style={styles.body}>{body}</Text>
+      </View>
+    </View>
   );
 }
 
