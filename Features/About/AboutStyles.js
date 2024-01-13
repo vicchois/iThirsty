@@ -4,10 +4,6 @@ const aboutStyles = StyleSheet.create({
   container: {
     alignItems: 'center',
   },
-  image: {
-    flex: 1,
-    resizeMode: 'cover',
-  },
   picture: {
     width: 100,
     height: 100,

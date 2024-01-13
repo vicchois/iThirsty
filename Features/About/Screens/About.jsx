@@ -47,16 +47,16 @@ export default function About({ navigation }) {
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <Text style={styles.title}>About iThirsty</Text>
-      {
-        OUR_TEAM.map((person) => (
-          <Person key={person.id} name={person.name} body={person.body} picture={person.picture} />
-        ))
-      }
       <Button
         style={styles.button}
         title="Home"
         onPress={navigateToLanding}
       />
+      {
+        OUR_TEAM.map((person) => (
+          <Person key={person.id} name={person.name} body={person.body} picture={person.picture} />
+        ))
+      }
     </ScrollView>
   );
 }

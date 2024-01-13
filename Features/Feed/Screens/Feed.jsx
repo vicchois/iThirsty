@@ -3,7 +3,7 @@
 
 import React, { useState } from 'react';
 import {
-  Button, Text, View,
+  Button, Text, View, ImageBackground,
 } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
 import PropTypes from 'prop-types';
@@ -18,46 +18,57 @@ export default function Feed({ navigation }) {
 
   const PLANT_INFO = [
     {
-      id: 1,
-      name: 'House Plant',
-      min: 20,
-      max: 50,
-    },
-    {
       id: 2,
-      name: 'Bamboo',
-      min: 30,
-      max: 50,
+      name: 'Succulents and Cacti',
+      min: 0,
+      max: 30,
+      picture: require('../../../assets/succulents.jpg'),
     },
     {
       id: 3,
-      name: 'Succulent',
-      min: 10,
-      max: 20,
+      name: 'Ferns and Philodendron',
+      min: 40,
+      max: 70,
+      picture: require('../../../assets/ferns.jpeg'),
+    },
+    {
+      id: 4,
+      name: 'Floral Plants',
+      min: 50,
+      max: 70,
+      picture: require('../../../assets/floral.jpeg'),
     },
   ];
+
+  const handlePlantSelection = (itemValue) => {
+    const selectedPlantInfo = PLANT_INFO.find((plant) => plant.id.toString() === itemValue);
+    setSelectedPlant(selectedPlantInfo);
+  };
 
   return (
     <View style={styles.container}>
       <Text style={styles.title}>iThirsty</Text>
-      <Text style={styles.text}>Select Plant:</Text>
-      <Picker
-        selectedValue={selectedPlant}
-        onValueChange={(itemValue, itemIndex) => setSelectedPlant(itemValue)}
-      >
-        <Picker.Item label="House Plant" value="1" />
-        <Picker.Item label="Bamboo" value="2" />
-        <Picker.Item label="Succulent" value="3" />
-      </Picker>
-
-      <Text style={styles.text}>Moisture</Text>
-      <Text style={styles.text}>Helpful Information</Text>
-
       <Button
-        style={styles.button}
+        style={{ marginBottom: 20 }}
         title="Home"
         onPress={navigateToLanding}
       />
+      <Text style={styles.subtitle}>Select Plant:</Text>
+      <Picker
+        selectedValue={selectedPlant ? selectedPlant.id.toString() : null}
+        onValueChange={(itemValue) => handlePlantSelection(itemValue)}
+      >
+        {PLANT_INFO.map((plant) => (
+          <Picker.Item key={plant.id} label={plant.name} value={plant.id.toString()} />
+        ))}
+      </Picker>
+
+      {selectedPlant && (
+      <View style={styles.information}>
+        <Text style={styles.subtitle}>Moisture</Text>
+        <ImageBackground source={selectedPlant.picture} style={styles.image} />
+      </View>
+      )}
     </View>
   );
 }
