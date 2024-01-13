@@ -39,7 +39,7 @@ export default function Feed({ navigation }) {
     <View style={styles.container}>
       <Text style={styles.title}>Plant 1</Text>
       <Text style={styles.text}>Moisture</Text>
-      <Text style={styles.text}> Other Information </Text>
+      <Text style={styles.text}>Helpful Information</Text>
 
       <Button
         style={styles.button}
