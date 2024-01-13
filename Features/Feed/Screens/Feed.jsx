@@ -3,7 +3,7 @@
 
 import React, { useState } from 'react';
 import {
-  Text, View, ImageBackground,
+  Text, ScrollView, ImageBackground, View,
 } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
 import styles from '../FeedStyles';
@@ -40,7 +40,7 @@ export default function Feed() {
   };
 
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <Text style={styles.title}>iThirsty</Text>
       <Text style={styles.subtitle}>Select Plant:</Text>
       <Picker
@@ -54,10 +54,9 @@ export default function Feed() {
 
       {selectedPlant && (
       <View style={styles.information}>
-        <Text style={styles.subtitle}>Moisture</Text>
         <ImageBackground source={selectedPlant.picture} style={styles.image} />
       </View>
       )}
-    </View>
+    </ScrollView>
   );
 }

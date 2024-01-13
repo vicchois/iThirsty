@@ -1,18 +1,26 @@
 import React from 'react';
 import {
-  Text, View, ImageBackground,
+  Text, View,
 } from 'react-native';
-import styles from '../LandingStyles';
+import LottieView from 'lottie-react-native';
 
-const image = require('../../../assets/plant.jpg');
+import styles from '../LandingStyles';
 
 export default function Landing() {
   return (
     <View style={styles.container}>
-      <ImageBackground source={image} style={styles.image}>
+      <View style={styles.top}>
         <Text style={styles.title}>Welcome to iThirsty!</Text>
         <Text style={styles.text}>Helping you water your plants</Text>
-      </ImageBackground>
+      </View>
+      <View style={styles.bottom}>
+        <LottieView
+          style={styles.animation}
+          source={require('../../../assets/plant.json')}
+          autoPlay
+          loop
+        />
+      </View>
     </View>
   );
 }

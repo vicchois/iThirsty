@@ -3,24 +3,27 @@ import { StyleSheet } from 'react-native';
 const landingStyles = StyleSheet.create({
   container: {
     flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
-  image: {
-    flex: 1,
-    resizeMode: 'cover',
-    height: 900,
+  animation: {
+    height: 400,
+    width: 400,
+    marginTop: 40,
   },
   text: {
     marginTop: 20,
     color: 'black',
     fontSize: 20,
+    justifyContent: 'center',
     textAlign: 'center',
   },
   title: {
-    marginTop: 100,
     color: 'black',
     fontSize: 30,
     fontWeight: 'bold',
     textAlign: 'center',
+    marginTop: 50,
   },
   button: {
     marginVertical: 20,
