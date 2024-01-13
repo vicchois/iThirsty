@@ -1,19 +1,19 @@
 import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Landing from '../Features/Landing/Screens/Landing';
 import Feed from '../Features/Feed/Screens/Feed';
 import About from '../Features/About/Screens/About';
 
-const Stack = createNativeStackNavigator();
+const Tab = createBottomTabNavigator();
 
 export default function AppNavigation() {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Landing" component={Landing} options={{ headerShown: false }} />
-        <Stack.Screen name="Feed" component={Feed} options={{ headerShown: false }} />
-        <Stack.Screen name="About" component={About} options={{ headerShown: false }} />
-      </Stack.Navigator>
+      <Tab.Navigator>
+        <Tab.Screen name="Landing" component={Landing} options={{ headerShown: false }} />
+        <Tab.Screen name="Feed" component={Feed} options={{ headerShown: false }} />
+        <Tab.Screen name="About" component={About} options={{ headerShown: false }} />
+      </Tab.Navigator>
     </NavigationContainer>
   );
 }
