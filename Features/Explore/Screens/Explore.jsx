@@ -56,11 +56,35 @@ export default function Explore() {
       picture: require('../../../assets/floral.jpeg'),
 
     },
+    {
+      id: 6,
+      name: 'Cacti',
+      data: {
+        labels: ['min', 'max'],
+        datasets: [
+          { data: [0, 30] },
+        ],
+      },
+      picture: require('../../../assets/succulents.jpg'),
+
+    },
+    {
+      id: 7,
+      name: 'Philodendrion',
+      data: {
+        labels: ['min', 'max'],
+        datasets: [
+          { data: [0, 30] },
+        ],
+      },
+      picture: require('../../../assets/ferns.jpeg'),
+
+    },
   ];
 
   return (
     <ScrollView style={styles.container}>
-      <Text style={styles.title}>Plant Moisture</Text>
+      <Text style={styles.title}>Explore!</Text>
       <View style={styles.twoColumnContainer}>
         {PLANT_INFO.map((plant) => (
           <PlantInfo

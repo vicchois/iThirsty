@@ -6,7 +6,7 @@ const exploreStyles = StyleSheet.create({
     flex: 1,
   },
   title: {
-    marginTop: 100,
+    marginTop: 150,
     color: 'black',
     fontSize: 30,
     fontWeight: 'bold',
