@@ -4,12 +4,18 @@ const plantsStyles = StyleSheet.create({
   container: {
     flex: 1,
   },
+  plantInformation: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+  },
   image: {
     resizeMode: 'cover',
-    height: 1000,
+    height: 780,
+    width: 450,
   },
   title: {
     marginTop: 150,
+    marginBottom: 10,
     marginLeft: 50,
     color: 'black',
     fontSize: 30,
@@ -22,11 +28,22 @@ const plantsStyles = StyleSheet.create({
     fontSize: 20,
     textAlign: 'center',
   },
-  information: {
-    marginTop: 50,
+  information1: {
+    marginTop: 40,
+    marginBottom: 10,
     marginLeft: 50,
     color: 'black',
     backgroundColor: '#9db98b',
+    width: 125,
+    padding: 20,
+    borderRadius: 10,
+  },
+  information2: {
+    marginTop: 40,
+    marginBottom: 10,
+    marginLeft: 50,
+    color: 'black',
+    backgroundColor: '#bdd1a0',
     width: 125,
     padding: 20,
     borderRadius: 10,

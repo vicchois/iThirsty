@@ -7,8 +7,8 @@ const landingStyles = StyleSheet.create({
     alignItems: 'center',
   },
   animation: {
-    height: 400,
-    width: 400,
+    height: 350,
+    width: 350,
     marginTop: 40,
   },
   text: {

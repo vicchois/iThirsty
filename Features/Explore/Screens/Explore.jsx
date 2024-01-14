@@ -1,11 +1,10 @@
 // npm i
 // npx expo start
 
-import React, { useState } from 'react';
+import React from 'react';
 import {
-  Text, ScrollView, ImageBackground, View,
+  Text, ScrollView, View,
 } from 'react-native';
-import { BarChart } from 'react-native-chart-kit';
 import PlantInfo from '../Components/PlantInfo';
 import styles from '../ExploreStyles';
 
@@ -46,18 +45,6 @@ export default function Explore() {
     },
     {
       id: 5,
-      name: 'Roses',
-      data: {
-        labels: ['min', 'max'],
-        datasets: [
-          { data: [60, 70] },
-        ],
-      },
-      picture: require('../../../assets/floral.jpeg'),
-
-    },
-    {
-      id: 6,
       name: 'Cacti',
       data: {
         labels: ['min', 'max'],
@@ -69,7 +56,7 @@ export default function Explore() {
 
     },
     {
-      id: 7,
+      id: 6,
       name: 'Philodendrion',
       data: {
         labels: ['min', 'max'],
@@ -78,6 +65,18 @@ export default function Explore() {
         ],
       },
       picture: require('../../../assets/ferns.jpeg'),
+
+    },
+    {
+      id: 7,
+      name: 'Roses',
+      data: {
+        labels: ['min', 'max'],
+        datasets: [
+          { data: [60, 70] },
+        ],
+      },
+      picture: require('../../../assets/floral.jpeg'),
 
     },
   ];

@@ -34,7 +34,7 @@ const OUR_TEAM = [
     id: 5,
     name: 'Blake Dee',
     body: 'Mechanical Engineering, 2026',
-    picture: require('../../../assets/plant.jpg'),
+    picture: require('../../../assets/blake.png'),
   },
 ];
 
