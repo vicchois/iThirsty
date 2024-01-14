@@ -7,3 +7,4 @@ This project is built on React Native Expo.
 ```
 git clone https://github.com/vicchois/iThirsty.git
 ```
+<img width="1235" alt="image" src="https://github.com/vicchois/iThirsty/assets/121906670/e132ad58-d5a3-4817-b45a-114eebcd0f98">
