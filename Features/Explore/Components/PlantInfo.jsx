@@ -26,29 +26,3 @@ PlantInfo.propTypes = {
   }).isRequired,
   picture: PropTypes.number.isRequired,
 };
-
-// { selectedPlant && (
-// <View style={styles.information}>
-//   <ImageBackground source={selectedPlant.picture} style={styles.image} />
-//   <BarChart
-//     data={selectedPlant.data}
-//     width={400}
-//     height={400}
-//     chartConfig={chartConfig}
-//     styles={{ margin: 100 }}
-//   />
-// </View>
-// ); }
-
-// const handlePlantSelection = (itemValue) => {
-//   const selectedPlantInfo = PLANT_INFO.find((plant) => plant.id.toString() === itemValue);
-//   setSelectedPlant(selectedPlantInfo);
-// };
-
-// const chartConfig = {
-//   backgroundGradientFrom: '#fff',
-//   backgroundGradientTo: '#fff',
-//   color: (opacity = 2) => `rgba(0,0,0, ${opacity})`,
-//   strokeWidth: 2,
-//   yAxisInterval: 20,
-// };
