@@ -83,7 +83,7 @@ export default function Explore() {
 
   return (
     <ScrollView style={styles.container}>
-      <Text style={styles.title}>Explore!</Text>
+      <Text style={styles.title}>Explore</Text>
       <View style={styles.twoColumnContainer}>
         {PLANT_INFO.map((plant) => (
           <PlantInfo

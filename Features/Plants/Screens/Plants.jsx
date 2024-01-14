@@ -21,17 +21,16 @@ export default function Plants() {
   };
   const handleLastHumidChange = (value) => {
     setLastHumid(value);
+    if (value !== null) {
+      if (value < 40) {
+        setStatus('iThirsty. Water me!');
+      } else {
+        setStatus('iFull and iHappy');
+      }
+    }
   };
   const handleLastWaterChange = (value) => {
     setLastWater(value);
-
-    if (value !== null) {
-      if (value < 5) {
-        setStatus('iThirsty. Water is less than 5cm');
-      } else {
-        setStatus('iFull');
-      }
-    }
   };
   return (
     <ScrollView style={styles.container}>
@@ -40,7 +39,7 @@ export default function Plants() {
         <View style={styles.plantInformation}>
           <View style={styles.status}>
             <Text style={styles.statsTitle}>Status </Text>
-            <Text style={styles.statusInfo}>{status}</Text>
+            <Text style={styles.statsPercent}>{status}</Text>
           </View>
           <View style={styles.information1}>
             <Text style={styles.statsTitle}>Temp</Text>

@@ -73,10 +73,8 @@ const plantsStyles = StyleSheet.create({
     borderRadius: 10,
     width: 300,
     padding: 20,
+    paddingBottom: 23,
     backgroundColor: '#9eb372',
-  },
-  statusInfo: {
-    fontSize: 20,
   },
 });
 

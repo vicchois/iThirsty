@@ -39,7 +39,7 @@ function ThingSpeakExample({ onLastTempChange, onLastHumidChange, onLastWaterCha
   }, [data, onLastTempChange, onLastHumidChange, onLastWaterChange]);
 
   const prepareChartData = () => {
-    if (!data || data.feeds.length == 0) return { labels: [], datasets: [{ data: [] }, { data: [] }, { data: [] }] };
+    if (!data || data.feeds.length == 0) return { labels: [], datasets: [{ data: [0] }, { data: [0] }, { data: [0] }] };
 
     const endIndex = startIndex + 3;
     const slicedData = data.feeds.slice(startIndex, endIndex);

@@ -46,7 +46,7 @@ const OUR_TEAM = [
 export default function About() {
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      <Text style={styles.title}>iThirsty Team</Text>
+      <Text style={styles.title}>The Team</Text>
       {
         OUR_TEAM.map((person) => (
           <Person

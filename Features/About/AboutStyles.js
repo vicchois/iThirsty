@@ -9,7 +9,7 @@ const aboutStyles = StyleSheet.create({
     marginRight: 30,
     marginTop: 30,
     borderRadius: 20,
-    backgroundColor: '#bdd1a0',
+    backgroundColor: '#9db98b',
   },
   picture: {
     width: 100,
@@ -31,6 +31,7 @@ const aboutStyles = StyleSheet.create({
     textAlign: 'left',
     marginRight: 20,
     marginBottom: 5,
+    fontWeight: '400',
   },
   body: {
     fontSize: 15,
