@@ -3,32 +3,50 @@ import { View, Text } from 'react-native';
 import axios from 'axios';
 import { LineChart } from 'react-native-chart-kit';
 import { format } from 'date-fns';
+import { Notifications } from 'expo';
+import styles from '../PlantsStyles';
 
-function ThingSpeakExample() {
+function ThingSpeakExample({ onLastTempChange, onLastHumidChange, onLastWaterChange }) {
   const [data, setData] = useState(null);
   const [startIndex, setStartIndex] = useState(0);
 
   useEffect(() => {
-    const apiUrl = process.env.EXPO_PUBLIC_API_URL;
+    const fetchData = async () => {
+      const apiUrl = process.env.EXPO_PUBLIC_API_URL;
 
-    axios.get(apiUrl)
-      .then((response) => {
+      try {
+        const response = await axios.get(apiUrl);
         setData(response.data);
-      })
-      .catch((error) => {
-        console.error('Error fetching data from ThingSpeak:', error);
-      });
+      } catch (error) {
+        console.error('Error: ', error);
+      }
+    };
+    fetchData();
+    const intervalId = setInterval(fetchData, 3000);
+    return () => clearInterval(intervalId);
   }, []);
+  useEffect(() => {
+    if (data && data.feeds && data.feeds.length > 0) {
+      const lastIndex = data.feeds.length - 1;
+      const lastTemp = parseFloat(data.feeds[lastIndex].field1).toFixed(1);
+      const lastHumid = parseFloat(data.feeds[lastIndex].field2);
+      const lastWater = parseFloat(data.feeds[lastIndex].field3);
+
+      onLastTempChange(lastTemp);
+      onLastHumidChange(lastHumid);
+      onLastWaterChange(lastWater);
+    }
+  }, [data, onLastTempChange, onLastHumidChange, onLastWaterChange]);
 
   const prepareChartData = () => {
-    if (!data) return { labels: [], datasets: [{ data: [] }, { data: [] }, { data: [] }] };
+    if (!data || data.feeds.length == 0) return { labels: [], datasets: [{ data: [] }, { data: [] }, { data: [] }] };
 
-    const endIndex = startIndex + 5;
+    const endIndex = startIndex + 3;
     const slicedData = data.feeds.slice(startIndex, endIndex);
 
     const labels = slicedData.map((feed) => {
       const timestamp = new Date(feed.created_at);
-      return format(timestamp, 'MM/dd HH:mm'); // Adjust the format as needed
+      return format(timestamp, 'MM/dd HH:mm:ss');
     });
 
     const datasets = [
@@ -43,56 +61,61 @@ function ThingSpeakExample() {
   const chartData = prepareChartData();
 
   return (
-    <View>
-      <Text>Temperature in Celsuis:</Text>
+    <View style={styles.chartContainerStyles}>
       {data && (
-        <View>
-          <LineChart
-            data={{ labels: chartData.labels, datasets: [chartData.datasets[0]] }}
-            width={300}
-            height={200}
-            yAxisSuffix=""
-            yAxisInterval={1}
-            chartConfig={{
-              backgroundGradientFrom: '#fff',
-              backgroundGradientTo: '#fff',
-              color: (opacity = 1) => `rgba(0, 0, 255, ${opacity})`,
-              labelColor: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
-              style: { borderRadius: 16 },
-            }}
-          />
-          <Text>Moisture Level Percentage:</Text>
+        <View style={styles.dataContainer}>
+          <View style={styles.chart}>
+            <Text style={styles.text}> Temperature</Text>
+            <LineChart
+              data={{ labels: chartData.labels, datasets: [chartData.datasets[0]] }}
+              width={350}
+              height={200}
+              yAxisSuffix=""
+              yAxisInterval={1}
+              chartConfig={{
+                backgroundGradientFrom: '#fff',
+                backgroundGradientTo: '#fff',
+                color: (opacity = 1) => `rgba(135, 163, 75, ${opacity})`,
+                labelColor: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
+                style: { borderRadius: 16 },
+              }}
+            />
+          </View>
+          <View style={styles.chart}>
+            <Text style={styles.text}>Humidity</Text>
+            <LineChart
+              data={{ labels: chartData.labels, datasets: [chartData.datasets[1]] }}
+              width={350}
+              height={200}
+              yAxisSuffix=""
+              yAxisInterval={1}
+              chartConfig={{
+                backgroundGradientFrom: '#fff',
+                backgroundGradientTo: '#fff',
+                color: (opacity = 1) => `rgba(154, 198, 126, ${opacity})`,
+                labelColor: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
+                style: { borderRadius: 16 },
+              }}
+            />
+          </View>
+          <View style={styles.chart}>
 
-          <LineChart
-            data={{ labels: chartData.labels, datasets: [chartData.datasets[1]] }}
-            width={300}
-            height={200}
-            yAxisSuffix=""
-            yAxisInterval={1}
-            chartConfig={{
-              backgroundGradientFrom: '#fff',
-              backgroundGradientTo: '#fff',
-              color: (opacity = 1) => `rgba(255, 0, 0, ${opacity})`,
-              labelColor: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
-              style: { borderRadius: 16 },
-            }}
-          />
-          <Text>Water Level (cm):</Text>
-
-          <LineChart
-            data={{ labels: chartData.labels, datasets: [chartData.datasets[2]] }}
-            width={300}
-            height={200}
-            yAxisSuffix=""
-            yAxisInterval={1}
-            chartConfig={{
-              backgroundGradientFrom: '#fff',
-              backgroundGradientTo: '#fff',
-              color: (opacity = 1) => `rgba(0, 128, 0, ${opacity})`,
-              labelColor: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
-              style: { borderRadius: 16 },
-            }}
-          />
+            <Text style={styles.text}>Water Level</Text>
+            <LineChart
+              data={{ labels: chartData.labels, datasets: [chartData.datasets[2]] }}
+              width={350}
+              height={200}
+              yAxisSuffix=""
+              yAxisInterval={1}
+              chartConfig={{
+                backgroundGradientFrom: '#fff',
+                backgroundGradientTo: '#fff',
+                color: (opacity = 1) => `rgba(56, 97, 17, ${opacity})`,
+                labelColor: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
+                style: { borderRadius: 16 },
+              }}
+            />
+          </View>
         </View>
       )}
     </View>

@@ -19,7 +19,7 @@ export default function Landing() {
           source={require('../../../assets/planter.json')}
           autoPlay
           loop
-          speed={0.5}
+          speed={1.5}
         />
       </View>
     </View>

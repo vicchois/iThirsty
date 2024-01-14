@@ -43,6 +43,9 @@ const exploreStyles = StyleSheet.create({
     textAlign: 'center',
     marginBottom: 10,
   },
+  popup: {
+    alignItems: 'center',
+  },
 });
 
 export default exploreStyles;

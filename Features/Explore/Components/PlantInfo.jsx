@@ -1,4 +1,7 @@
-import { Text, Image, View } from 'react-native';
+import React, { useState } from 'react';
+import {
+  Text, Image, View, TouchableOpacity, Modal,
+} from 'react-native';
 import PropTypes from 'prop-types';
 import styles from '../ExploreStyles';
 

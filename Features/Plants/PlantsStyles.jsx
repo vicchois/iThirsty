@@ -11,7 +11,7 @@ const plantsStyles = StyleSheet.create({
   image: {
     resizeMode: 'cover',
     height: 780,
-    width: 450,
+    width: 500,
   },
   title: {
     marginTop: 150,
@@ -22,6 +22,13 @@ const plantsStyles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'left',
   },
+  title2: {
+    fontSize: 30,
+    marginTop: 50,
+    marginLeft: 50,
+    fontWeight: 'bold',
+    textAlign: 'left',
+  },
   text: {
     margin: 20,
     color: 'black',
@@ -29,8 +36,7 @@ const plantsStyles = StyleSheet.create({
     textAlign: 'center',
   },
   information1: {
-    marginTop: 40,
-    marginBottom: 10,
+    marginTop: 30,
     marginLeft: 50,
     color: 'black',
     backgroundColor: '#9db98b',
@@ -39,8 +45,7 @@ const plantsStyles = StyleSheet.create({
     borderRadius: 10,
   },
   information2: {
-    marginTop: 40,
-    marginBottom: 10,
+    marginTop: 30,
     marginLeft: 50,
     color: 'black',
     backgroundColor: '#bdd1a0',
@@ -53,6 +58,25 @@ const plantsStyles = StyleSheet.create({
   },
   statsPercent: {
     fontSize: 25,
+  },
+  chartContainerStyles: {
+    backgroundColor: 'white',
+    margin: 10,
+  },
+  chart: {
+    marginBottom: 10,
+  },
+  status: {
+    marginTop: 25,
+    marginLeft: 50,
+    marginRight: 50,
+    borderRadius: 10,
+    width: 300,
+    padding: 20,
+    backgroundColor: '#9eb372',
+  },
+  statusInfo: {
+    fontSize: 20,
   },
 });
 
